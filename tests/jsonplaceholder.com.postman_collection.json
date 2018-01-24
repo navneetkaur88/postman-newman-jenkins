@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "VerifyJSON",
+			"name": "GetRequest",
 			"event": [
 				{
 					"listen": "test",
@@ -17,14 +17,80 @@
 						"exec": [
 							"tests[\"Status code is 200\"] = responseCode.code === 200;",
 							"",
-							"tests[\"Body should contain the advisory type\"] = responseBody.has(\"EOL Advisory\");"
+							"tests[\"Body should contain qui est esse\"] = responseBody.has(\"qui est esse\");"
 						]
 					}
 				}
 			],
 			"request": {
-				"url": "http://ucshcltool-stage.cloudapps.cisco.com/public/rest/advisory/loadAdvisoryTypes",
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/posts?userId=1",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
 				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteReq",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							"",
+							"tests[\"Response time is less than 1000ms\"] = responseTime < 1000;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/posts?userId=1",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
 				"header": [],
 				"body": {},
 				"description": ""
