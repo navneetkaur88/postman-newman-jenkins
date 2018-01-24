@@ -1,0 +1,35 @@
+{
+	"variables": [],
+	"info": {
+		"name": "jsonplaceholder.com",
+		"_postman_id": "a869fc33-7871-9f00-dcac-4d5818b90cd0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "VerifyJSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Body should contain the advisory type\"] = responseBody.has(\"EOL Advisory\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://ucshcltool-stage.cloudapps.cisco.com/public/rest/advisory/loadAdvisoryTypes",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
